@@ -1,5 +1,3 @@
-// { className, height, width, play, color}
-
 export default function AudioOnSVG(props) {
   return (
     <>

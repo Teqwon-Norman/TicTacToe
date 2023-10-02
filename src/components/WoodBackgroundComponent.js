@@ -1,6 +1,5 @@
 import WoodBackgroundSVG from "./svg/WoodBackgroundSvg";
 
-// { className }
 
 export default function WoodBackgroundComponent(props) {
   return (

@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 
-// { player1, player2, tie , xIsNext, winner, draw }
 
 export default function ScoreKeeperComponent(props) {
     useEffect(() => {

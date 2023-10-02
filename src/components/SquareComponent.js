@@ -1,5 +1,3 @@
-// { className, value, onSquareClick }
-
 export default function Square(props) {
   return (
     <button className={ props.className } onClick={ props.onSquareClick } >

@@ -1,7 +1,6 @@
 import Square from './SquareComponent';
 import React from 'react';
 
-// { squares, handleClick }
 
 export default function BoardComponent(props) {
   const classNameMap = {

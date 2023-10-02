@@ -3,7 +3,6 @@ import AudioOnSVG from '../components/svg/AudioOnSvg';
 import AudioOffSVG from '../components/svg/AudioOffSvg';
 import useSound from "use-sound";
 
-// { audio, color }
 
 export default function AudioComponent(props) {
     const [play, { stop } ] = useSound(props.audio);

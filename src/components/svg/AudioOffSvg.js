@@ -1,5 +1,3 @@
-// { className, height, width, stop, color }
-
 export default function AudioOffSVG(props) {
     return (
       <>
