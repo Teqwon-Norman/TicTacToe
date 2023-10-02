@@ -16,7 +16,7 @@ export default function GameTitleSVG(props) {
         width="1000"
         height="1000"
         viewBox="0 0 1000 1000"
-        {...props}
+        className={ props.className }
         >
         <rect 
             x="405" 

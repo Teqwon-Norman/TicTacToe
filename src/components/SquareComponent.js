@@ -1,7 +1,9 @@
-export default function Square({ className, value, onSquareClick }) {
+// { className, value, onSquareClick }
+
+export default function Square(props) {
   return (
-    <button className={className} onClick={onSquareClick}>
-      { value }
+    <button className={ props.className } onClick={ props.onSquareClick } >
+      { props.value }
     </button>
   );
 }

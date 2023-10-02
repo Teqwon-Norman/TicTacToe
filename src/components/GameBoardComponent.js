@@ -1,7 +1,9 @@
 import Square from './SquareComponent';
 import React from 'react';
 
-export default function BoardComponent({ squares, handleClick }) {
+// { squares, handleClick }
+
+export default function BoardComponent(props) {
   const classNameMap = {
     0 : "square top left",
     1 : "square top",
@@ -20,8 +22,8 @@ export default function BoardComponent({ squares, handleClick }) {
         Object.entries(classNameMap).map((value) => 
           <Square
             className={classNameMap[value[0]]}
-            value={squares[value[0]]}
-            onSquareClick={() => handleClick(value[0])}
+            value={props.squares[value[0]]}
+            onSquareClick={() => props.handleClick(value[0])}
           />)
       }
     </div>
