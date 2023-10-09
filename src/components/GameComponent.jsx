@@ -12,18 +12,18 @@ export default function GameComponent() {
   const [squares, setSquares] = useState(Array(9).fill(null));
   const [playerOneScore, setPlayerOneScore] = useState(0);
   const [playerTwoScore, setPlayerTwoScore] = useState(0);
-  const [tie, setTie] = useState(0);
+  const [drawScore, setDrawScore] = useState(0);
   const audioComponentRef = useRef(null);
 
-  const winner = CheckForWinner(squares);
-  const draw = CheckForDraw(squares);
+  const isWinner = CheckForWinner(squares);
+  const isDraw = CheckForDraw(squares);
   const players = {
     0: 'X',
     1: 'O'
   };
 
   function squareClick(i) {
-    if (winner || draw) {
+    if (isWinner || isDraw) {
       setSquares(Array(9).fill(null));
       setXIsNext(!xIsNext);
 
@@ -52,18 +52,18 @@ export default function GameComponent() {
   }
 
   useEffect(() => {
-    if (winner) {
-      if (squares[winner[0]] === players[0]) {
-        setPlayerOneScore(playerOneScore + 1);
-      } else if (squares[winner[0]] === players[1]) {
-        setPlayerTwoScore(playerTwoScore + 1);
+    if (isWinner) {
+      if (squares[isWinner[0]] === players[0]) {
+        setPlayerOneScore((prevState) => prevState + 1);
+      } else if (squares[isWinner[0]] === players[1]) {
+        setPlayerTwoScore((prevState) => prevState + 1);
       } 
-      animateWinningSquares(winner);
+      animateWinningSquares(isWinner);
 
-    } else if (draw) {
-      setTie(tie + 1);
+    } else if (isDraw) {
+      setDrawScore((prevState) => prevState + 1);
     } 
-  }, [xIsNext]);
+  }, [xIsNext, isWinner, isDraw, squares, players]);
 
   return (
     <>
@@ -83,12 +83,12 @@ export default function GameComponent() {
         }
         { 
           <ScoreKeeperComponent 
-            player1={playerOneScore} 
-            player2={playerTwoScore} 
-            tie={tie}
+            playerOne={playerOneScore} 
+            playerTwo={playerTwoScore} 
+            gameDraw={drawScore}
             xIsNext={xIsNext}
-            winner={winner}
-            draw={draw} 
+            isWinner={isWinner}
+            isDraw={isDraw} 
           /> 
         }
       </div>
